@@ -1,1 +1,28 @@
 
+name: test
+
+on:
+  # For manual workflow runs
+  workflow_dispatch:
+
+  # On any commit to the master branch
+  push:
+    branches:
+      - "master"
+
+    paths-ignore:
+      - ".github/workflows/**"
+      - "**.md"
+
+jobs:
+  workflow_call:
+    uses: vivek7252/ci-cd-1/.github/workflows/ci.yml@master
+
+    secrets:
+      GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+
+  workflow_call_2:
+    uses: vivek7252/my-repo/.github/workflows/another-pipeline.yaml@main
+
+    secrets:
+      GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
