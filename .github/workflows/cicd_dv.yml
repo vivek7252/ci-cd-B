@@ -17,7 +17,3 @@ jobs:
       GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
 
   # Second workflow call
-  workflow_call_2:
-    uses: vivek7252/my-repo/.github/workflows/another-pipeline.yaml@main
-    secrets:
-      GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
